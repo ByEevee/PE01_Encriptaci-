@@ -1,18 +1,34 @@
-## Getting Started
+# Xifrat de missatges
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Programa Java d'exemple per xifrar un missatge amb una clau i, tot seguit, provar de recuperar-lo amb una altra clau.
 
-## Folder Structure
+## Important: el símbol `?`
 
-The workspace contains two folders by default, where:
+Si en el missatge xifrat apareix un `?`, **no vol dir necessàriament que el xifratge hagi fallat**. El programa pot estar intentant mostrar un caràcter que la terminal no sap representar. En aquest cas, la terminal el substitueix per `?`.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Com funciona
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+1. Introdueix la clau per xifrar.
+2. Escriu el missatge que vols xifrar.
+3. Consulta el missatge xifrat que mostra el programa.
+4. Introdueix una clau per desencriptar-lo. Per recuperar el missatge original, fes servir la mateixa clau del xifratge.
+5. Respon `s` si vols repetir el procés; qualsevol altra resposta tanca el programa.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## Estructura del projecte
 
-## Dependency Management
+```text
+src/Propi/
+├── ClasseCriptografica.java   # Xifratge i desxifratge
+└── ProgramaPrincipal.java    # Interacció amb l'usuari
+```
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## Execució
+
+Obre el projecte amb Visual Studio Code i executa `ProgramaPrincipal.java` des de l'extensió de Java. També pots compilar-lo i executar-lo des d'un terminal amb el JDK instal·lat:
+
+```bash
+javac -d bin src/Propi/*.java
+java -cp bin Propi.ProgramaPrincipal
+```
+
+> Aquest projecte és un exercici didàctic; no utilitzis aquest mètode per protegir informació real.
