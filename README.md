@@ -1,34 +1,61 @@
-# Xifrat de missatges
+﻿# Xifrat de missatges en Java
 
-Programa Java d'exemple per xifrar un missatge amb una clau i, tot seguit, provar de recuperar-lo amb una altra clau.
+Aquest projecte és un exercici didàctic per practicar diferents tècniques de xifratge en Java.
+Inclou una implementació moderna amb AES i una versió antiga basada en un algorisme personalitzat.
+
+## Què fa el programa
+
+El programa demana una clau i un missatge, els xifra i després intenta recuperar el text original amb una clau de desencriptació.
 
 ## Important: el símbol `?`
 
-Si en el missatge xifrat apareix un `?`, **no vol dir necessàriament que el xifratge hagi fallat**. El programa pot estar intentant mostrar un caràcter que la terminal no sap representar. En aquest cas, la terminal el substitueix per `?`.
+Si en el missatge xifrat apareix un `?`, no significa necessàriament que el xifratge hagi fallat. Pot passar que la terminal no pugui mostrar algun caràcter i el substitueixi per `?`.
 
 ## Com funciona
 
 1. Introdueix la clau per xifrar.
 2. Escriu el missatge que vols xifrar.
-3. Consulta el missatge xifrat que mostra el programa.
-4. Introdueix una clau per desencriptar-lo. Per recuperar el missatge original, fes servir la mateixa clau del xifratge.
-5. Respon `s` si vols repetir el procés; qualsevol altra resposta tanca el programa.
+3. Observa el missatge xifrat generat pel programa.
+4. Introdueix la clau correcta per desencriptar-lo.
+5. Respon `s` per tornar a repetir el procés o qualsevol altra cosa per sortir.
 
 ## Estructura del projecte
 
 ```text
-src/Propi/
-├── ClasseCriptografica.java   # Xifratge i desxifratge
-└── ProgramaPrincipal.java    # Interacció amb l'usuari
+src/
+├── ClasseAES.java               # Xifratge i desxifratge amb AES
+├── ProgramaPrincipalAES.java    # Interacció amb l'usuari (versió AES)
+└── Propi/
+    ├── ClasseCriptografica.java # Versió antiga de xifratge personalitzat
+    └── ProgramaPrincipal.java  # Interacció amb l'usuari (versió antiga)
 ```
+
+## Versions incloses
+
+### 1. Versió AES
+
+És la implementació principal i més moderna del projecte. Fa servir Java Cryptography Architecture (JCA) amb `Cipher` i `SecretKeySpec`.
+
+### 2. Versió antiga
+
+La carpeta `src/Propi` conté una implementació didàctica més senzilla basada en un desplaçament de caràcters. Serveix per entendre el concepte de xifratge amb una clau, però no és adequada per a ús real de seguretat.
 
 ## Execució
 
-Obre el projecte amb Visual Studio Code i executa `ProgramaPrincipal.java` des de l'extensió de Java. També pots compilar-lo i executar-lo des d'un terminal amb el JDK instal·lat:
+### Versió AES
+
+```bash
+javac -d bin src/ClasseAES.java src/ProgramaPrincipalAES.java
+java -cp bin ProgramaPrincipalAES
+```
+
+### Versió antiga
 
 ```bash
 javac -d bin src/Propi/*.java
 java -cp bin Propi.ProgramaPrincipal
 ```
 
-> Aquest projecte és un exercici didàctic; no utilitzis aquest mètode per protegir informació real.
+## Notes
+
+> Aquest projecte és un exercici acadèmic. No l'hi hauries d'utilitzar per protegir informació real de manera segura.
