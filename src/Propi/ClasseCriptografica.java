@@ -4,7 +4,7 @@ public class ClasseCriptografica {
     // Desplaçament fix: evita valors negatius sense perdre informació
     private static final int OFFSET = 1000;
 
-    public static String Encripta(String missatge, String clau) {
+    public static String Encripta(String missatge, String clau) {//Xifrat = 2·lletra − clau + 1000
         StringBuilder resultat = new StringBuilder();
 
         for (int i = 0; i < missatge.length(); i++) {
@@ -19,7 +19,7 @@ public class ClasseCriptografica {
         return resultat.toString();
     }
 
-    public static String Desencripta(String missatgeXifrat, String clau) {
+    public static String Desencripta(String missatgeXifrat, String clau) { // lletra = (xifrat − 1000 + clau) / 2
         StringBuilder resultat = new StringBuilder();
 
         for (int i = 0; i < missatgeXifrat.length(); i++) {
